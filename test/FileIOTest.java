@@ -29,7 +29,7 @@ public class FileIOTest {
         //assertFalse(people.size() == 14);                    //detta ger error! bra
         assert(people.size() != 13);                       //kollar att listan inte blev 13 personer
         //Assertions.assertEquals("770302123", firstPerson.getSecurityNumber());   //detta blev fel, bra
-        Assertions.assertEquals("7703021234", firstPerson.getSecurityNumber());     //fungerar! nu vet vi första objektet är rätt
+        Assertions.assertEquals(SSNTest, firstPerson.getSecurityNumber());     //fungerar! nu vet vi första objektet är rätt
 
         System.out.println(firstPerson.getSecurityNumber());                  //vill se utskrift
         System.out.println(firstPerson.getName());

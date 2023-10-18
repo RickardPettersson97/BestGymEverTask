@@ -13,7 +13,7 @@ public class FileIO {
 
         List<PersonInfo> people = new ArrayList<>();
 
-        String SSNName;
+        //String SSNName;
         String paymentDate;                                 //tillfällig variabel för andra raden
         String temp;
         String [] twoData;
@@ -23,8 +23,8 @@ public class FileIO {
 
         try (BufferedReader bufRead = new BufferedReader(new FileReader(filePathString))) {                    //try with resources, hade problem med fileReader inte tar path, gjorde till string
             while ((temp = bufRead.readLine()) != null) {
-                SSNName = temp;                                                              //SSNname blir lika med raden
-                twoData = SSNName.split(",");                                          //splitras vid ,
+                //SSNName = temp;                                                              //SSNname blir lika med raden
+                twoData = temp.split(",");                                          //splitras vid ,
                 paymentDate = bufRead.readLine();                                           //paymentDate blir nästa rad (datum)
 
                 PersonInfo person = new PersonInfo(twoData[0].trim(), twoData[1].trim(), paymentDate.trim());       //dessa läggs in som strängar i PersonInfo objekt

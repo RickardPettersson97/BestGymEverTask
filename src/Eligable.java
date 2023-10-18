@@ -24,7 +24,7 @@ public class Eligable {
             betalande = pdh.payingCustomers(medlemmar, currentDate);
         }
         else {
-            betalande = pdh.payingCustomers(medlemmar, null);        //annars skapas den i realtid
+            betalande = pdh.payingCustomers(medlemmar, null);        //annars skapas den i realtid, ska vara null
         }
 
         boolean found = false;

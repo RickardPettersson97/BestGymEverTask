@@ -84,6 +84,9 @@ public class FileIO {
         } catch (IOException e) {
             System.out.println("du har fått IOexception");
             e.printStackTrace();
+        } catch (NullPointerException e) {
+            System.out.println("har du lagt in null i parametern?");
+            e.printStackTrace();
         } catch (Exception e) {
             System.out.println("det blev okänt fel");
             e.printStackTrace();

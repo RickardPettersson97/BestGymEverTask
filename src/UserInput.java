@@ -20,6 +20,9 @@ public class UserInput {
         } else {
             try {
                 s = JOptionPane.showInputDialog(null, "Vad är personens namn eller personnummer?");
+                if (s == null){                                                                                               //lade till detta pga fick exceptionerror om man tryckte på cancel
+                    System.exit(0);
+                }
             } catch (Exception e) {
                 System.out.println("något gick fel!");
                 System.exit(0);

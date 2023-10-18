@@ -24,7 +24,7 @@ t.ex. om någon anger "thathat thathatgbabgabgatgah" är detta en person som int
      result = ji.validateInput(s);
      assert (result != null);                     //detta gav originellt error
 
-     s = "        7605021234";
+     s = "        7605021234";                    //personnumer till Elmer Ekorrson
      result = ji.validateInput(s);
      assert (result != null);
      System.out.println(result.getName());   //bra rätt namn också

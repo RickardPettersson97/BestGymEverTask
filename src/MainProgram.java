@@ -2,7 +2,7 @@ import java.util.List;
 
 public class MainProgram {
 
-    PersonInfo p;
+    PersonInfo p;                                          //skapar upp instanser av klasser
     UserInput u = new UserInput();
     List<PersonInfo> theList;
     List<PersonInfo> thePayingList;

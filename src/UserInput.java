@@ -2,16 +2,15 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserInput {
-
-    public boolean testEnvironment = false;     //sätt true om det är test pågång
+public class UserInput {    //tar userinput och jämför med en lista av customers, listan skapas av FileIO
+                            //returnar objekt, om inte finns så skrivs icke behörig
     FileIO fileIo = new FileIO();
 
     String inFile = "src/customers.txt";
-    List<PersonInfo> giltigaObjekt = fileIo.readData(inFile);       //skapar upp listan av 14 personinfo som vi testade förut, dessa ska jämföras
+    List<PersonInfo> giltigaObjekt = fileIo.readData(inFile);       //skapar upp listan av personerna i customers.txt, använder metoden readData i FileIO, dessa ska jämföras med input
 
 
-    public PersonInfo validateInput(String test) {               //den kommer returna objekt av PersonInfo
+    public PersonInfo validateInput(String test, boolean testEnvironment) {               //den kommer returna objekt av PersonInfo, test parameter är onödig i riktiga programmet, spelar bara roll för tester
         String s = null;
 
         if (testEnvironment) {
@@ -20,7 +19,7 @@ public class UserInput {
         } else {
             try {
                 s = JOptionPane.showInputDialog(null, "Vad är personens namn eller personnummer?");
-                if (s == null){                                                                                               //lade till detta pga fick exceptionerror om man tryckte på cancel
+                if (s == null){                                                                                               //lade till detta pga fick exceptionerror om man tryckte på cancel... ops
                     System.exit(0);
                 }
             } catch (Exception e) {
@@ -32,27 +31,24 @@ public class UserInput {
         boolean found = false;
         for (PersonInfo temp : giltigaObjekt) {
             if (temp.getSecurityNumber().equalsIgnoreCase(s.trim()) || temp.getName().equalsIgnoreCase(s.trim())) {
-                found = true;                                                                           //den är väl visst använd?
-                return temp;                   //returnar objektet i fråga / personen med personnummer eller namnet
+                found = true;
+                return temp;                   //returnar objektet i fråga / alltså personen med matchande personnummer eller namn
             }
         }
         if (!found) {
-            if (testEnvironment) {
+            if (testEnvironment) {                          //om test, pga annars stoppar JOptionPane testerna
                 return null;
             } else {
                 JOptionPane.showMessageDialog(null, s + " finns inte i filen, är därmed obehörig");
                 System.exit(0);
             }
-
         }
         return null;
     }
 }
 
 
-
-
-
+//tidigare problem och tankar
 /*  for (PersonInfo temp : giltigaObjekt) { tidiga problem, gick inte igenom loopen korrekt
                if (temp.getSecurityNumber().equals(s.trim()) || temp.getName().equals(s.trim())) {
 
@@ -64,7 +60,6 @@ public class UserInput {
 
                    }
                }
-
  */
 /* Testerna fastnar här... disaster lyckades lösa genom att göra en till testenvironment flag i slutet
  if (!found) {

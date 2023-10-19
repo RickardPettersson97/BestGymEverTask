@@ -2,12 +2,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PaymentDateHandler {
+public class PaymentDateHandler {    //returnar lista av BETALANDE medlemmar
 //finns ett problem med min logik ifall medarbetare inte förstår att currentdate ska vara "null" för riktiga programmet...
 
 
      public List<PersonInfo> payingCustomers(List<PersonInfo> people, LocalDate currentDate) {        //returnar en personinfo lista, har som parameter en personinfo lista och currentdate för test
-        if (currentDate == null) {                                                                    //om currendate är null (i riktiga programmet) så är det riktig tid som används, detta pga test
+        if (currentDate == null) {                                                                    //om currendate är null (i riktiga programmet) så är det riktig tid som används, detta pga testning
             currentDate = LocalDate.now();
         }
 
@@ -23,15 +23,11 @@ public class PaymentDateHandler {
         }
         return payingCustomers;                     //returnerar ny lista med payingcustomers, alltså de som betalat inom senaste året,
     }
-
     }
-
-
 
 /*
 
-
-
+//egna tankar och tidigare kod som jag ändrat
 tidigare försökskod, testade att ha en if else sats och testenvironment för att se ifall tester var igång! problemet är att det bara går att göra tester på ett datum (2023-10-17) så ändrar om till
 parameter istället
 
@@ -63,22 +59,4 @@ parameter istället
         return payingCustomers;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  */

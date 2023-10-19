@@ -1,4 +1,4 @@
-public class PersonInfo {
+public class PersonInfo {           //personInfo klassen, inkapsling, konstruktor, sparar setters även ifall de inte används just nu
 
     private String name;
 

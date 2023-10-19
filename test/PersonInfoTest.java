@@ -1,2 +1,3 @@
 public class PersonInfoTest {
+    //här gjordes tyvärr inga tester....
 }
